@@ -1,39 +1,38 @@
-html{scroll-behavior:smooth}
 img{max-width:100%}
-a:focus-visible,button:focus-visible{outline:3px solid #b5832a;outline-offset:2px}
+a:focus-visible,button:focus-visible{outline:3px solid #18d26e;outline-offset:2px}
 .portfolio-wrap,.portfolio-item img{border-radius:6px}
 .nrh-fab{position:fixed;left:16px;z-index:9999;width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,.3);transition:transform .2s}
 .nrh-fab:hover{transform:scale(1.08)}
-.nrh-wa{bottom:80px;background:#25d366}.nrh-call{bottom:16px;background:#b5832a}
+.nrh-wa{bottom:80px;background:#25d366}.nrh-call{bottom:16px;background:#18d26e}
 .nrh-top{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;padding:14px 5%;background:#111;position:sticky;top:0;z-index:50}
-.nrh-brand{color:#fff;font-weight:700;letter-spacing:.08em;text-decoration:none;border-left:4px solid #b5832a;padding-left:10px}
+.nrh-brand{color:#fff;font-weight:700;letter-spacing:.08em;text-decoration:none;border-left:4px solid #18d26e;padding-left:10px}
 .nrh-top nav a{color:#ddd;margin-left:18px;text-decoration:none;font-size:.9em;text-transform:uppercase;letter-spacing:.05em}
-.nrh-top nav a:hover{color:#b5832a}
+.nrh-top nav a:hover{color:#18d26e}
 .nrh-cta{margin-top:1.8em}
-.nrh-btn{display:inline-block;background:#b5832a;color:#fff!important;padding:12px 22px;border-radius:30px;text-decoration:none!important;margin:0 8px 8px 0;font-weight:600;border:2px solid #b5832a}
-.nrh-btn.alt{background:transparent;color:#b5832a!important}
+.nrh-btn{display:inline-block;background:#18d26e;color:#fff!important;padding:12px 22px;border-radius:30px;text-decoration:none!important;margin:0 8px 8px 0;font-weight:600;border:2px solid #18d26e}
+.nrh-btn.alt{background:transparent;color:#18d26e!important}
 .spotlight .image img{border-radius:8px;box-shadow:0 6px 24px rgba(0,0,0,.15)}
 @media(max-width:736px){.nrh-top nav a{margin:0 12px 0 0}.nrh-fab{width:48px;height:48px}}
 
 /* ===== NFF redesign: charcoal + antique gold ===== */
-:root{--ink:#1a1a1f;--gold:#b5832a;--gold-d:#96691c;--cream:#faf6ef}
+:root{--ink:#1a1a1f;--gold:#18d26e;--gold-d:#13a456;--cream:#faf6ef}
 ::selection{background:var(--gold);color:#fff}
 body{color:#3b3b42;-webkit-font-smoothing:antialiased}
 h1,h2,h3,h4,.section-header h3,.carousel-content h2,#header #logo h1,.spotlight h3{font-family:'Playfair Display',Georgia,serif}
 .section-header h3{font-weight:700;letter-spacing:.03em}
 .section-header p{max-width:760px;margin-left:auto;margin-right:auto}
-#header.header-scrolled{background:rgba(20,20,24,.94);backdrop-filter:blur(8px);box-shadow:0 2px 24px rgba(0,0,0,.3)}
+#header.header-scrolled{background:rgba(20,20,24,.96);box-shadow:0 2px 18px rgba(0,0,0,.28)}
 .carousel-content h2{font-size:clamp(2rem,5vw,3.6rem);text-shadow:0 2px 24px rgba(0,0,0,.55)}
 .carousel-content p{font-size:clamp(1rem,2vw,1.2rem)}
 .btn-get-started{border-radius:40px;padding:12px 38px;letter-spacing:.06em;transition:.25s}
-.btn-get-started:hover{background:var(--gold-d);border-color:var(--gold-d);transform:translateY(-2px)}
-#about .about-col,#services .box{border-radius:12px;transition:transform .3s,box-shadow .3s}
-#about .about-col:hover,#services .box:hover{transform:translateY(-6px);box-shadow:0 16px 36px rgba(0,0,0,.14)}
+.btn-get-started:hover{background:var(--gold-d);border-color:var(--gold-d)}
+#about .about-col,#services .box{border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,.08);transition:transform .25s ease-out;will-change:transform}
+#about .about-col:hover,#services .box:hover{transform:translateY(-6px)}
 #facts .counters span{font-family:'Playfair Display',Georgia,serif}
-.portfolio-wrap{border-radius:12px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,.08);transition:transform .3s,box-shadow .3s;background:#fff}
-.portfolio-wrap:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(0,0,0,.18)}
+.portfolio-wrap{border-radius:12px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,.1);transition:transform .25s ease-out;background:#fff;will-change:transform}
+.portfolio-wrap:hover{transform:translateY(-6px)}
 .portfolio-wrap figure{overflow:hidden;margin:0}
-.portfolio-wrap figure img{transition:transform .6s}
+.portfolio-wrap figure img{transition:transform .5s ease-out}
 .portfolio-wrap:hover figure img{transform:scale(1.07)}
 .portfolio-info h4 a{font-family:'Playfair Display',Georgia,serif;font-weight:600}
 .testimonial-item{border-radius:14px}
@@ -52,3 +51,5 @@ h1,h2,h3,h4,.section-header h3,.carousel-content h2,#header #logo h1,.spotlight 
 .nrh-status.ok{color:#2e7d32}.nrh-status.err{color:#c62828}
 #footer .nrh-status.ok{color:#9be29b}#footer .nrh-status.err{color:#ffb3b3}
 .nrh-note{text-align:center;margin-top:14px;font-size:.95em;color:#666}
+
+.spotlight .content h1{font-family:'Playfair Display',Georgia,serif;font-size:1.9em;color:var(--ink);margin:0 0 .7em;line-height:1.2}

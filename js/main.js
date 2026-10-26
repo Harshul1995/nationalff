@@ -1,20 +1,19 @@
 jQuery(document).ready(function( $ ) {
 
   // Back to top button
-  $(window).scroll(function() {
-    if ($(this).scrollTop() > 100) {
-      $('.back-to-top').fadeIn('slow');
-    } else {
-      $('.back-to-top').fadeOut('slow');
-    }
-  });
+  // Scroll handler: throttled with requestAnimationFrame, acts only when state changes
+  var btnOn=false,tick=false;
+  function onScroll(){tick=false;var on=(window.pageYOffset||document.documentElement.scrollTop)>100;
+    if(on!==btnOn){btnOn=on;$('.back-to-top').stop(true,true)[on?'fadeIn':'fadeOut'](250);$('#header').toggleClass('header-scrolled',on);}}
+  window.addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(onScroll);}},{passive:true});
+  onScroll();
   $('.back-to-top').click(function(){
-    $('html, body').animate({scrollTop : 0},1500, 'easeInOutExpo');
+    $('html, body').animate({scrollTop : 0},800, 'easeInOutExpo');
     return false;
   });
 
   // Initiate the wowjs animation library
-  new WOW().init();
+  new WOW({mobile:false,offset:60}).init();
 
   // Initiate superfish on nav menu
   $('.nav-menu').superfish({
@@ -34,7 +33,7 @@ jQuery(document).ready(function( $ ) {
       'id': ''
     });
     $('body').append($mobile_nav);
-    $('body').prepend('<button type="button" id="mobile-nav-toggle"><i class="fa fa-bars"></i></button>');
+    $('body').prepend('<button type="button" id="mobile-nav-toggle" aria-label="Open menu"><i class="fa fa-bars"></i></button>');
     $('body').append('<div id="mobile-body-overly"></div>');
     $('#mobile-nav').find('.menu-has-children').prepend('<i class="fa fa-chevron-down"></i>');
 
@@ -81,7 +80,7 @@ jQuery(document).ready(function( $ ) {
 
         $('html, body').animate({
           scrollTop: target.offset().top - top_space
-        }, 1500, 'easeInOutExpo');
+        }, 800, 'easeInOutExpo');
 
         if ($(this).parents('.nav-menu').length) {
           $('.nav-menu .menu-active').removeClass('menu-active');
@@ -99,13 +98,6 @@ jQuery(document).ready(function( $ ) {
   });
 
   // Header scroll class
-  $(window).scroll(function() {
-    if ($(this).scrollTop() > 100) {
-      $('#header').addClass('header-scrolled');
-    } else {
-      $('#header').removeClass('header-scrolled');
-    }
-  });
 
   // Intro carousel
   var introCarousel = $(".carousel");
