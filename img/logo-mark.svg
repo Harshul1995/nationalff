@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240"><defs><linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f7e6a8"/><stop offset=".5" stop-color="#d9b04f"/><stop offset="1" stop-color="#b8862b"/></linearGradient>
+<linearGradient id="pil" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#14566b"/><stop offset=".55" stop-color="#0a3547"/><stop offset="1" stop-color="#051f2b"/></linearGradient>
+<linearGradient id="fold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d6a845"/><stop offset="1" stop-color="#8f6521"/></linearGradient><radialGradient id="shine" cx=".3" cy=".22" r=".6"><stop offset="0" stop-color="#fff" stop-opacity=".22"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient><style>.ink{fill:#062734}.sub{fill:#a47a22}.gold{fill:url(#gold)}</style></defs><g transform="translate(0,0) scale(1)"><path d="M28 28C80 12 160 12 212 28C228 80 228 160 212 212C160 228 80 228 28 212C12 160 12 80 28 28Z" fill="url(#pil)" stroke="url(#gold)" stroke-width="5" stroke-linejoin="round"/>
+<path d="M28 28C80 12 160 12 212 28C228 80 228 160 212 212C160 228 80 228 28 212C12 160 12 80 28 28Z" fill="url(#shine)"/>
+<path d="M28 28C80 12 160 12 212 28C228 80 228 160 212 212C160 228 80 228 28 212C12 160 12 80 28 28Z" transform="translate(120 120) scale(.9) translate(-120 -120)" fill="none" stroke="url(#gold)" stroke-width="1.8" stroke-dasharray="3 5" stroke-linecap="round" opacity=".85"/>
+<path d="M70 70H97V170H70Z M143 70H170V170H143Z" fill="url(#gold)"/>
+<path d="M70 70H97L170 170H143Z" fill="url(#fold)"/>
+<path d="M97 70L97 104L70 70Z M143 170L143 136L170 170Z" fill="#000" opacity=".18"/>
+<path d="M83.5 164V80L156.5 160V76" fill="none" stroke="#0a3547" stroke-opacity=".6" stroke-width="2.2" stroke-dasharray="2.5 5.5" stroke-linecap="round" stroke-linejoin="round" transform="translate(0 0)"/>
+<circle cx="120" cy="120" r="0" /></g></svg>
