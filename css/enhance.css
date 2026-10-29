@@ -109,3 +109,19 @@ section.nrh-portfolio .portfolio-item figure img{width:100%;height:100%;object-f
 @media(max-width:420px){#header #logo .nrh-hname{font-size:15px;letter-spacing:.6px}#header #logo .nrh-hmark{width:36px!important;height:36px!important}#header #logo h1 a{gap:8px}}
 @media(max-width:360px){#header #logo .nrh-hname{font-size:14px;letter-spacing:.3px}.nrh-brand .nrh-hname{font-size:13px}}
 #contact p,#footer p,#footer a,.nrh-legal p{overflow-wrap:anywhere}
+
+/* ===== services: icon cards ===== */
+#services{padding:70px 0 80px}
+#services .container{max-width:1240px}
+@media(max-width:1299px){#services .container{max-width:1140px}}
+.nrh-svc-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:30px;margin-top:10px;padding:0 15px}
+.nrh-svc-col{min-width:0}
+.nrh-svc{height:100%;box-sizing:border-box;background:#fff;border:1px solid #e8efeb;border-radius:18px;padding:34px 30px 32px;box-shadow:0 8px 28px rgba(6,39,52,.07);transition:transform .25s ease-out,border-color .25s}
+.nrh-svc:hover{transform:translateY(-6px);border-color:#18d26e}
+.nrh-ico{display:flex;align-items:center;justify-content:center;width:76px;height:76px;border-radius:50%;background:#e8f9f0;color:#12a95a;margin-bottom:22px}
+.nrh-svc:hover .nrh-ico{background:#18d26e;color:#fff}
+.nrh-ico svg{display:block}
+.nrh-svc h4{font-family:'Playfair Display',Georgia,serif;font-size:21px;line-height:1.3;font-weight:700;color:#062734;margin:0 0 14px}
+.nrh-svc p{font-size:15px;line-height:1.75;color:#555;margin:0;overflow-wrap:break-word}
+@media(max-width:991px){.nrh-svc-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}}
+@media(max-width:640px){.nrh-svc-grid{grid-template-columns:1fr;gap:20px}.nrh-svc{padding:28px 24px}#services{padding:50px 0 60px}}
