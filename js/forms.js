@@ -13,6 +13,7 @@
   var EJ_URL = 'https://api.emailjs.com/api/v1.0/email/send';
   var FS = 'https://formsubmit.co/ajax/' + TO;
   var FAIL = 'Sorry, we could not send your message. Please call us on +91 98252 90860 or +91 99989 70508.';
+  var VERSION = 'v3';
   var DEBUG = /[?&]debug=1/.test(location.search);
 
   function post(url, opts, ms) {
@@ -76,16 +77,16 @@
       chain.push(['FormSubmit', sendFormSubmit]);
       var errors = [];
       function run(i) {
-        return chain[i][1](f, isContact).then(function () { if (DEBUG) console.log('Sent via', chain[i][0]); }, function (e) {
+        return chain[i][1](f, isContact).then(function () { return chain[i][0]; }, function (e) {
           var msg = chain[i][0] + ': ' + (e && e.message ? e.message : e); errors.push(msg); console.error('Send failed -', msg);
           if (i + 1 < chain.length) return run(i + 1);
           throw e;
         });
       }
-      run(0).then(function () { f.reset(); say(true, okMsg); })
+      run(0).then(function (via) { f.reset(); say(true, okMsg + (DEBUG ? ' [debug: sent via ' + via + ', forms.js ' + VERSION + ']' : '')); })
         .catch(function () {
           say(false, FAIL);
-          if (st && DEBUG) { var pre = document.createElement('div'); pre.style.cssText = 'font:12px/1.4 monospace;color:#444;margin-top:8px;text-align:left;white-space:pre-wrap'; pre.textContent = 'DEBUG\n' + errors.join('\n'); st.appendChild(pre); }
+          if (st && DEBUG) { var pre = document.createElement('div'); pre.style.cssText = 'font:12px/1.4 monospace;color:#444;margin-top:8px;text-align:left;white-space:pre-wrap'; pre.textContent = 'DEBUG  forms.js ' + VERSION + '\nroutes tried: ' + chain.map(function (c) { return c[0]; }).join(' > ') + '\n' + errors.join('\n'); st.appendChild(pre); }
           if (!isContact || !st) return;
           /* Never lose a lead: offer the same enquiry, pre-filled, on WhatsApp. The form is not reset, so values are intact. */
           var txt = 'Hello, I am ' + val(f, 'name') + '. ' + (val(f, 'interest') ? 'Interested in: ' + val(f, 'interest') + '. ' : '') + val(f, 'message') +
