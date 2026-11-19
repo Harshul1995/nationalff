@@ -2,12 +2,31 @@
 
 Static site served by GitHub Pages (custom domain via `CNAME`).
 
-## Contact + newsletter forms
-Forms post to FormSubmit (`js/forms.js`) which emails `newnational_furnishing@yahoo.com`.
-**One-time activation:** submit the form once on the live site, then open the email from FormSubmit
-(check Yahoo spam) and click *Activate*. Until then submissions are rejected (see browser console).
-Optional: use the random alias URL FormSubmit gives you instead of the email address, in `js/forms.js`
-(`FS`) and in the `action="https://formsubmit.co/..."` of each form, so the address is not public.
+## Contact + newsletter forms -> Yahoo inbox only
+Enquiries go to `newnational_furnishing@yahoo.com` and nowhere else (`js/forms.js`).
+
+**Recommended: EmailJS (sends through the Yahoo account itself, no activation email)**
+1. Yahoo Account Security -> turn on 2-step verification -> *Generate app password* (name it "website").
+2. emailjs.com -> sign up -> Email Services -> Add New Service -> Yahoo -> enter the Yahoo address + app password -> Create. Copy the **Service ID**.
+3. Email Templates -> Create New Template:
+   - To Email: `newnational_furnishing@yahoo.com`  | Reply To: `{{reply_to}}`  | Subject: `{{subject}}`
+   - Content:
+     ```
+     Name: {{name}}
+     Email: {{email}}
+     Phone: {{phone}}
+     Interested in: {{interest}}
+
+     {{message}}
+     ```
+   Copy the **Template ID**.
+4. Account -> General -> copy the **Public Key**.
+5. In `js/forms.js` fill `EMAILJS = { service: '...', template: '...', key: '...' }`, commit, push, send a test.
+
+**Backup (automatic): FormSubmit.** Used when EmailJS is not filled in or fails. It needs a one-time activation
+email sent to the Yahoo inbox (check spam); until activated it rejects messages.
+If both fail, the visitor sees a pre-filled "Send on WhatsApp" link, so no enquiry is lost.
+Debug: open the browser console (F12) and submit - the exact error is printed.
 
 ## Instagram feed (optional)
 `.github/workflows/update-live-data.yml` runs every 6 hours and writes `data/instagram-feed.json`.
