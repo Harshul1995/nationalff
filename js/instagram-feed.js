@@ -1,7 +1,7 @@
 (function(){
 var box=document.getElementById('nrh-ig'); if(!box) return;
 var ctl=window.AbortController?new AbortController():null, to=setTimeout(function(){if(ctl)ctl.abort();},6000);
-fetch('/.netlify/functions/instagram-feed',{headers:{Accept:'application/json'},signal:ctl?ctl.signal:undefined})
+fetch('data/instagram-feed.json?'+Math.floor(Date.now()/3600000),{headers:{Accept:'application/json'},signal:ctl?ctl.signal:undefined})
 .then(function(r){if(!r.ok)throw new Error('off');return r.json();})
 .then(function(d){
   clearTimeout(to); var posts=(d&&d.posts||[]).filter(function(p){return p&&p.img&&p.link;}).slice(0,6); if(posts.length<3) return;

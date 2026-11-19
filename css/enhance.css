@@ -18,7 +18,7 @@ a:focus-visible,button:focus-visible{outline:3px solid #18d26e;outline-offset:2p
 :root{--ink:#1a1a1f;--gold:#18d26e;--gold-d:#13a456;--cream:#faf6ef}
 ::selection{background:var(--gold);color:#fff}
 body{color:#3b3b42;-webkit-font-smoothing:antialiased}
-h1,h2,h3,h4,.section-header h3,.carousel-content h2,#header #logo h1,.spotlight h3{font-family:'Playfair Display',Georgia,serif}
+h1,h2,h3,h4,.section-header h3,.carousel-content h2,#header #logo h1,#header #logo .nrh-logo-h,.spotlight h3{font-family:'Playfair Display',Georgia,serif}
 .section-header h3{font-weight:700;letter-spacing:.03em}
 .section-header p{max-width:760px;margin-left:auto;margin-right:auto}
 #header.header-scrolled{background:rgba(20,20,24,.96);box-shadow:0 2px 18px rgba(0,0,0,.28)}
@@ -78,7 +78,7 @@ section.nrh-portfolio .portfolio-item figure img{width:100%;height:100%;object-f
 .nrh-form input.form-control,.nrh-form select.form-control{border:1px solid #d9dde3!important;border-radius:8px!important;padding:0 14px!important;height:50px!important}
 .nrh-form select.form-control{padding-right:40px!important}
 .nrh-form textarea.form-control{border:1px solid #d9dde3!important;border-radius:8px!important;padding:12px 14px!important}
-@media(max-width:480px){#header #logo h1{font-size:18px!important;letter-spacing:.04em!important;line-height:1.2!important;white-space:nowrap}.nrh-brand{font-size:15px}}
+@media(max-width:480px){#header #logo h1,#header #logo .nrh-logo-h{font-size:18px!important;letter-spacing:.04em!important;line-height:1.2!important;white-space:nowrap}.nrh-brand{font-size:15px}}
 
 .nrh-sub{display:block;margin:.9em 0 .1em;color:var(--ink);font-weight:700}
 .spotlight .content br+.nrh-sub{margin-top:.9em}
@@ -87,8 +87,10 @@ section.nrh-portfolio .portfolio-item figure img{width:100%;height:100%;object-f
 
 /* ===== header: N mark + one-line name ===== */
 #header #logo{margin-top:-6px;padding-left:60px}
-#header #logo h1{margin:0!important;padding:0!important;border:0!important;line-height:1!important}
-#header #logo h1 a,#header #logo h1 a:hover{display:flex;align-items:center;gap:14px;border:0!important;padding:0!important;color:#fff}
+#header #logo h1,
+#header #logo .nrh-logo-h{margin:0!important;padding:0!important;border:0!important;line-height:1!important}
+#header #logo h1 a,
+#header #logo .nrh-logo-h a,#header #logo h1 a:hover,#header #logo .nrh-logo-h a:hover{display:flex;align-items:center;gap:14px;border:0!important;padding:0!important;color:#fff}
 #header #logo .nrh-hname{font-family:'Montserrat',Arial,sans-serif;font-weight:700;font-size:32px;letter-spacing:3px;white-space:nowrap;line-height:1}
 #header.header-scrolled{background:#062734!important}
 .nrh-top{background:#062734;padding:12px 5%}
@@ -105,8 +107,8 @@ section.nrh-portfolio .portfolio-item figure img{width:100%;height:100%;object-f
 @media(max-width:1199px){#header #logo{padding-left:24px}#header #logo .nrh-hname{font-size:22px;letter-spacing:1.5px}#header #logo .nrh-hmark{width:46px!important;height:46px!important}}
 @media(max-width:1099px){#nav-menu-container{display:none}#mobile-nav-toggle{display:inline}#header #logo{padding-left:20px;margin-top:-9px}#header #logo .nrh-hname{font-size:24px}}
 @media(max-width:768px){#header #logo{padding-left:0}#header #logo .nrh-hname{font-size:22px}}
-@media(max-width:575px){#header #logo{margin-top:-8px}#header #logo .nrh-hname{font-size:17px;letter-spacing:1px}#header #logo .nrh-hmark{width:40px!important;height:40px!important}#header #logo h1 a{gap:10px}.nrh-fab{left:auto!important;right:14px;width:46px;height:46px}.nrh-wa{bottom:144px!important}.nrh-call{bottom:86px!important}.nrh-brand .nrh-hname{font-size:15px;letter-spacing:1px}}
-@media(max-width:420px){#header #logo .nrh-hname{font-size:15px;letter-spacing:.6px}#header #logo .nrh-hmark{width:36px!important;height:36px!important}#header #logo h1 a{gap:8px}}
+@media(max-width:575px){#header #logo{margin-top:-8px}#header #logo .nrh-hname{font-size:17px;letter-spacing:1px}#header #logo .nrh-hmark{width:40px!important;height:40px!important}#header #logo h1 a,#header #logo .nrh-logo-h a{gap:10px}.nrh-fab{left:auto!important;right:14px;width:46px;height:46px}.nrh-wa{bottom:144px!important}.nrh-call{bottom:86px!important}.nrh-brand .nrh-hname{font-size:15px;letter-spacing:1px}}
+@media(max-width:420px){#header #logo .nrh-hname{font-size:15px;letter-spacing:.6px}#header #logo .nrh-hmark{width:36px!important;height:36px!important}#header #logo h1 a,#header #logo .nrh-logo-h a{gap:8px}}
 @media(max-width:360px){#header #logo .nrh-hname{font-size:14px;letter-spacing:.3px}.nrh-brand .nrh-hname{font-size:13px}}
 #contact p,#footer p,#footer a,.nrh-legal p{overflow-wrap:anywhere}
 

@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://nationalff.netlify.app/sitemap.xml
+
+Sitemap: https://nationalrexine.in/sitemap.xml

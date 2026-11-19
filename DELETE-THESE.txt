@@ -1,0 +1,3 @@
+Run in your repo folder, then commit (these do nothing on GitHub Pages / are no longer used):
+
+git rm -r --ignore-unmatch .user.ini netlify _headers _redirects contactform css/scss-files.txt js/google-reviews.js img/sof/sofasofa.txt img/cm/cm.txt img/bq/beds.txt img/cc/curt.txt
