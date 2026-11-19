@@ -3,30 +3,26 @@
 Static site served by GitHub Pages (custom domain via `CNAME`).
 
 ## Contact + newsletter forms -> Yahoo inbox only
-Enquiries go to `newnational_furnishing@yahoo.com` and nowhere else (`js/forms.js`).
+Enquiries are delivered ONLY to `newnational_furnishing@yahoo.com` (`js/forms.js`). The site tries, in order:
+1. **Google Apps Script** (recommended, free, no activation email, no Yahoo app password) - setup below
+2. **EmailJS** (optional) - fill `EMAILJS = {service, template, key}` in `js/forms.js`
+3. **FormSubmit** (needs a one-time activation email to the Yahoo inbox; may be blocked by Yahoo or by ad blockers)
+If all fail, the visitor gets a pre-filled WhatsApp link, so no enquiry is lost.
 
-**Recommended: EmailJS (sends through the Yahoo account itself, no activation email)**
-1. Yahoo Account Security -> turn on 2-step verification -> *Generate app password* (name it "website").
-2. emailjs.com -> sign up -> Email Services -> Add New Service -> Yahoo -> enter the Yahoo address + app password -> Create. Copy the **Service ID**.
-3. Email Templates -> Create New Template:
-   - To Email: `newnational_furnishing@yahoo.com`  | Reply To: `{{reply_to}}`  | Subject: `{{subject}}`
-   - Content:
-     ```
-     Name: {{name}}
-     Email: {{email}}
-     Phone: {{phone}}
-     Interested in: {{interest}}
+### Apps Script setup (5 minutes)
+1. Go to script.google.com (signed in to any Google account) -> **New project**.
+2. Delete the sample code, paste the contents of `tools/apps-script-mailer.gs`, click **Save**.
+3. Pick the function `testSend` in the toolbar and click **Run**. Google asks for permission:
+   Review permissions -> choose your account -> Advanced -> "Go to ... (unsafe)" -> Allow.
+   A test email must arrive in the Yahoo inbox (check spam once; mark "Not spam").
+4. **Deploy -> New deployment -> type: Web app** -> Execute as: **Me** -> Who has access: **Anyone** -> Deploy. Copy the **Web app URL** (ends in `/exec`).
+5. In `js/forms.js` paste it: `var APPS_SCRIPT_URL = 'https://script.google.com/macros/s/.../exec';` then commit and push.
+If you ever edit the script, use Deploy -> Manage deployments -> edit -> New version (the URL stays the same).
+Limit: about 100 emails/day on a free Google account, far more than enquiries need.
 
-     {{message}}
-     ```
-   Copy the **Template ID**.
-4. Account -> General -> copy the **Public Key**.
-5. In `js/forms.js` fill `EMAILJS = { service: '...', template: '...', key: '...' }`, commit, push, send a test.
-
-**Backup (automatic): FormSubmit.** Used when EmailJS is not filled in or fails. It needs a one-time activation
-email sent to the Yahoo inbox (check spam); until activated it rejects messages.
-If both fail, the visitor sees a pre-filled "Send on WhatsApp" link, so no enquiry is lost.
-Debug: open the browser console (F12) and submit - the exact error is printed.
+### Debugging
+Open the site with `?debug=1` at the end of the address (e.g. nationalrexine.in/?debug=1#contact), submit, and the
+real error from each provider is printed under the form (also in the browser console, F12).
 
 ## Instagram feed (optional)
 `.github/workflows/update-live-data.yml` runs every 6 hours and writes `data/instagram-feed.json`.
