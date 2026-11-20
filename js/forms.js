@@ -13,7 +13,7 @@
   var EJ_URL = 'https://api.emailjs.com/api/v1.0/email/send';
   var FS = 'https://formsubmit.co/ajax/' + TO;
   var FAIL = 'Sorry, we could not send your message. Please call us on +91 98252 90860 or +91 99989 70508.';
-  var VERSION = 'v3';
+  var VERSION = 'v4';
   var DEBUG = /[?&]debug=1/.test(location.search);
 
   function post(url, opts, ms) {
@@ -83,7 +83,7 @@
           throw e;
         });
       }
-      run(0).then(function (via) { f.reset(); say(true, okMsg + (DEBUG ? ' [debug: sent via ' + via + ', forms.js ' + VERSION + ']' : '')); })
+      run(0).then(function (via) { f.reset(); if (DEBUG) console.log('Sent via', via, '- forms.js', VERSION); say(true, okMsg); })
         .catch(function () {
           say(false, FAIL);
           if (st && DEBUG) { var pre = document.createElement('div'); pre.style.cssText = 'font:12px/1.4 monospace;color:#444;margin-top:8px;text-align:left;white-space:pre-wrap'; pre.textContent = 'DEBUG  forms.js ' + VERSION + '\nroutes tried: ' + chain.map(function (c) { return c[0]; }).join(' > ') + '\n' + errors.join('\n'); st.appendChild(pre); }
