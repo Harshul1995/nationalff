@@ -270,16 +270,17 @@ section.nrh-portfolio .portfolio-item figure img{width:100%;height:100%;object-f
 #about .nrh-owner h2.title{text-align:left;font-size:24px;line-height:1.3;margin:0 0 6px}
 #about .nrh-owner-by{font-family:"Montserrat",sans-serif;font-weight:600;font-size:12px;letter-spacing:1.2px;text-transform:uppercase;color:#12a954;margin:0 0 14px}
 #about .nrh-owner p{padding:0;margin:0 0 12px}
-#about .nrh-owner-points{list-style:none;margin:16px 0 6px;padding:0;display:flex;flex-wrap:wrap}
-#about .nrh-owner-points li{font-size:13.5px;font-weight:600;line-height:22px;color:#000;margin:0 24px 6px 0}
-#about .nrh-owner-points i{color:#18d26e;font-size:18px;vertical-align:middle;margin-right:6px}
+#about .nrh-owner-points{list-style:none;margin:14px 0 6px;padding:0}
+#about .nrh-owner-points li{position:relative;padding-left:26px;margin:0 0 6px;font-size:14px;line-height:22px;color:#333}
+#about .nrh-owner-points li strong{color:#000;font-weight:700}
+#about .nrh-owner-points i{position:absolute;left:0;top:2px;color:#18d26e;font-size:18px;line-height:18px}
 #about .nrh-owner p.nrh-owner-quote{margin:14px 0 10px;padding-left:14px;border-left:3px solid #18d26e;font-style:italic;color:#000}
 @media (min-width:768px){
   #about .nrh-owner{display:flex;align-items:stretch}
   #about .nrh-owner .img{flex:0 0 30%;max-width:30%}
   #about .nrh-owner .img img{height:100%;object-fit:cover;object-position:47% 0;border-radius:12px 0 0 12px}
   #about .nrh-owner .icon{left:auto;right:-32px;bottom:auto;top:50%;margin-top:-32px}
-  #about .nrh-owner-body{flex:1;padding:32px 40px 24px 54px}
+  #about .nrh-owner-body{flex:1;padding:30px 36px 22px 50px}
   #about .nrh-owner h2.title{font-size:26px;margin-bottom:6px}
 }
 @media (max-width:767px){#about .nrh-owner h2.title{margin-top:0}#about .nrh-owner .img img{aspect-ratio:4/3;object-fit:cover;object-position:50% 0}}
