@@ -24,6 +24,18 @@ Limit: about 100 emails/day on a free Google account, far more than enquiries ne
 Open the site with `?debug=1` at the end of the address (e.g. nationalrexine.in/?debug=1#contact), submit, and the
 real error from each provider is printed under the form (also in the browser console, F12).
 
+## Customer reviews ("Loved by our customers")
+The Google rating panel stays solid in the middle and real customer reviews glide behind it, right to left,
+continuously (desktop: one row; phones: a row above and a row below). It pauses when someone hovers or touches it,
+via the small pause button, when the tab is hidden, and it respects "reduce motion" settings.
+All reviews live in `data/reviews.json` (one entry per review, in the order they should appear):
+
+    { "name": "Reviewer Name", "text": "Exactly what they wrote.", "when": "Nov 2023" }
+
+- Keep the customer's exact words (spelling mistakes, emojis, Gujarati/Hindi all fine). Line breaks are kept.
+- Only 5-star reviews are shown (add `"rating": 4` to an entry to hide it). Any number of reviews works.
+- To add new ones: Google Maps -> your business -> Reviews, copy the new ones, add entries at the top of the file, commit and push.
+
 ## Instagram feed (optional)
 `.github/workflows/update-live-data.yml` runs every 6 hours and writes `data/instagram-feed.json`.
 Add the repo secret `BEHOLD_FEED_URL` (behold.so feed) in GitHub -> Settings -> Secrets and variables -> Actions.
